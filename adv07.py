@@ -1,5 +1,3 @@
-import re
-
 with open('day07.txt', 'r') as f:
     arr_str = [line.strip() for line in f]
 
@@ -23,18 +21,20 @@ temp_arr = set(temp_arr)
 print(len(temp_arr))
 
 # Part 2
-cnt = [0]
-def check_bag_adv(colour):
-    return 1
-    # for i in range(n):
-    #     if colour in arr_str[i][0]:
-    #         arr_str[i][1] = arr_str[i][1].split(', ')
-    #         for j in arr_str[i][1]:
-    #             j = j.strip('bags. ')
-    #             if j[:1].isalpha():
-    #                 return int(1)
-    #             else:
-    #                 cnt[0] += int(j[:1])*check_bag_adv(j[2:])
+for i in range(n):
+    arr_str[i][1] = arr_str[i][1].split(', ')
 
-cnt = check_bag_adv('shiny gold')
+def check_bag_adv(colour):
+    for i in range(n):
+        if colour in arr_str[i][0]:
+            cnt = 0
+            for j in arr_str[i][1]:
+                j = j.strip('bags. ')
+                if j[:1].isalpha():
+                    break
+                else:
+                    cnt += int(j[:1])*check_bag_adv(j[2:])
+            return cnt + 1
+
+cnt = check_bag_adv('shiny gold') - 1
 print(cnt)
