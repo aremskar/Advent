@@ -1,6 +1,6 @@
 import re
 
-with open('day4.txt', 'r') as f:
+with open('day04.txt', 'r') as f:
     arr_str = [line.strip() for line in f]
 
 n = len(arr_str)

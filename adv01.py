@@ -1,6 +1,6 @@
 # User code: 1175276-20201204-d7f5c55c
 
-with open('day1.txt', 'r') as f:
+with open('day01.txt', 'r') as f:
     arr_str = [line.strip() for line in f]
 
 n = len(arr_str)
